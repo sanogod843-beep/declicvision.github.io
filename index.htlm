@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DÉCLIC VISION</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+    color:#333;
+}
+header{
+    background:#009E49;
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+}
+header h1{
+    font-size:42px;
+    margin:0;
+}
+header p{
+    font-size:20px;
+}
+nav{
+    background:#EF3340;
+    text-align:center;
+    padding:15px;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+section{
+    max-width:900px;
+    margin:auto;
+    padding:40px 20px;
+}
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>DÉCLIC VISION</h1>
+<p>Se former aujourd'hui, impacter demain.</p>
+</header>
+
+<nav>
+<a href="#">Accueil</a>
+<a href="#">Formations</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<section>
+<div class="card">
+<h2>Bienvenue</h2>
+
+<p>
+DÉCLIC VISION est une plateforme de formation, d'innovation pédagogique et de solutions numériques destinée aux enseignants, élèves et professionnels de l'éducation.
+</p>
+
+<p>
+Notre mission est d'accompagner chacun vers la réussite grâce à des formations de qualité, des ressources pratiques et des outils innovants.
+</p>
+
+</div>
+</section>
+
+<footer>
+© 2026 DÉCLIC VISION - Tous droits réservés.
+</footer>
+
+</body>
+</html>
