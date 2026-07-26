@@ -1,1 +1,50 @@
 
+/* Animation : une tâche apparaît en douceur */
+.task-item {
+  animation: apparition 0.4s ease-out;
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Le bouton "Ajouter" grossit un peu quand on le survole */
+.btn-primary {
+  transition: transform 0.2s ease;
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+/* Les boutons de filtre réagissent au clic */
+.filter-btn {
+  transition: all 0.2s ease;
+}
+.filter-btn:active {
+  transform: scale(0.95);
+}
+
+/* La poubelle tremble un peu au survol */
+.btn-delete {
+  transition: transform 0.2s ease;
+}
+.btn-delete:hover {
+  transform: rotate(-10deg) scale(1.2);
+}
+
+/* Le message "Aucune tâche" pulse doucement */
+.empty-state {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
