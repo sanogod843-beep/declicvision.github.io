@@ -1,4 +1,3 @@
-
 /* Animation : une tâche apparaît en douceur */
 .task-item {
   animation: apparition 0.4s ease-out;
