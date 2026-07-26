@@ -35,7 +35,7 @@ createApp({
             if (titre === "") return;
 
             tasks.value.push({
-                id: Date.now(),
+                id: Date.now() + Math.random(),
                 title: titre,
                 done: false
             });
@@ -76,14 +76,33 @@ createApp({
             return 0;
         }
 
+        // Chargement des tâches depuis le localStorage, avec protection
+        // contre une donnée corrompue ou un ancien format invalide
         const sauvegarde = localStorage.getItem("tasks");
 
         if (sauvegarde) {
-            tasks.value = JSON.parse(sauvegarde);
+            try {
+                const donnees = JSON.parse(sauvegarde);
+
+                if (Array.isArray(donnees)) {
+                    tasks.value = donnees;
+                } else {
+                    console.warn("Format de sauvegarde invalide, réinitialisation.");
+                    tasks.value = [];
+                }
+            } catch (e) {
+                console.error("Données de tâches corrompues, réinitialisation.", e);
+                tasks.value = [];
+            }
         }
 
+        // Sauvegarde automatique à chaque modification des tâches
         watch(tasks, () => {
-            localStorage.setItem("tasks", JSON.stringify(tasks.value));
+            try {
+                localStorage.setItem("tasks", JSON.stringify(tasks.value));
+            } catch (e) {
+                console.error("Impossible de sauvegarder les tâches.", e);
+            }
         }, { deep: true });
 
         return {
@@ -101,4 +120,4 @@ createApp({
         };
 
     }
-}).mount("#app");
+}).mount("#app");            
