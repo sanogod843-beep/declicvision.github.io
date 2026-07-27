@@ -476,3 +476,161 @@ nav {
     width: fit-content;
     margin: 35px auto;
 }
+/* ===============================
+   PAGE FORMATIONS
+================================ */
+
+.formations{
+    background:#f8f9fa;
+}
+
+.formations .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.formations .card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.10);
+
+    transition:.35s;
+
+    border-top:8px solid #009E49;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.formations .card:nth-child(2){
+
+    border-top-color:#EF3340;
+
+}
+
+.formations .card:nth-child(3){
+
+    border-top-color:#FCD116;
+
+}
+
+.formations .card:nth-child(4){
+
+    border-top-color:#009E49;
+
+}
+
+.formations .card:nth-child(5){
+
+    border-top-color:#EF3340;
+
+}
+
+.formations .card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.18);
+
+}
+
+.formations .card h3{
+
+    color:#009E49;
+
+    margin-bottom:20px;
+
+    font-size:24px;
+
+}
+
+.formations .card strong{
+
+    color:#EF3340;
+
+}
+
+.formations ul{
+
+    margin:15px 0 20px 22px;
+
+}
+
+.formations li{
+
+    margin-bottom:8px;
+
+    line-height:1.6;
+
+}
+
+.formations .btn{
+
+    margin-top:auto;
+
+    text-align:center;
+
+    font-weight:bold;
+
+}
+
+.hero .btn{
+
+    font-size:18px;
+
+}
+
+.temoignages .cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+}
+
+.temoignages .card{
+
+    background:white;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    border-top:6px solid #FCD116;
+
+}
+
+@media(max-width:768px){
+
+.formations .cards{
+
+grid-template-columns:1fr;
+
+}
+
+.formations .card{
+
+padding:22px;
+
+}
+
+.formations .card h3{
+
+font-size:20px;
+
+}
+
+}
