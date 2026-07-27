@@ -1,123 +1,279 @@
-const { createApp, ref, computed, watch } = Vue;
+/* ===================================
+   DÉCLIC VISION - JAVASCRIPT
+   Se former aujourd'hui, impacter demain
+=================================== */
 
-createApp({
-    setup() {
 
-        const tasks = ref([]);
-        const newTaskTitle = ref("");
-        const currentFilter = ref("all");
+document.addEventListener("DOMContentLoaded", function(){
 
-        const filters = [
-            { label: "Toutes", value: "all" },
-            { label: "À faire", value: "active" },
-            { label: "Terminées", value: "done" }
-        ];
 
-        const filteredTasks = computed(() => {
-            if (currentFilter.value === "active") {
-                return tasks.value.filter(task => !task.done);
-            }
 
-            if (currentFilter.value === "done") {
-                return tasks.value.filter(task => task.done);
-            }
+/* ===============================
+   ANNÉE AUTOMATIQUE FOOTER
+================================ */
 
-            return tasks.value;
-        });
 
-        const hasCompleted = computed(() => {
-            return tasks.value.some(task => task.done);
-        });
+const footerText = document.querySelector("footer p");
 
-        function addTask() {
-            const titre = newTaskTitle.value.trim();
+if(footerText){
 
-            if (titre === "") return;
+    const annee = new Date().getFullYear();
 
-            tasks.value.push({
-                id: Date.now() + Math.random(),
-                title: titre,
-                done: false
+    footerText.innerHTML =
+    "© " + annee + " DÉCLIC VISION - Tous droits réservés";
+
+}
+
+
+
+
+/* ===============================
+   NAVIGATION FLUIDE
+================================ */
+
+
+const liens = document.querySelectorAll("nav a");
+
+
+liens.forEach(function(lien){
+
+    lien.addEventListener("click", function(e){
+
+        const destination =
+        document.querySelector(
+        this.getAttribute("href")
+        );
+
+
+        if(destination){
+
+            e.preventDefault();
+
+            destination.scrollIntoView({
+
+                behavior:"smooth"
+
             });
 
-            newTaskTitle.value = "";
         }
 
-        function toggleTask(id) {
-            const task = tasks.value.find(t => t.id === id);
+    });
 
-            if (task) {
-                task.done = !task.done;
-            }
-        }
 
-        function deleteTask(id) {
-            tasks.value = tasks.value.filter(t => t.id !== id);
-        }
+});
 
-        function clearCompleted() {
-            tasks.value = tasks.value.filter(t => !t.done);
-        }
 
-        function getFilterCount(filter) {
 
-            if (filter === "all") {
-                return tasks.value.length;
-            }
 
-            if (filter === "active") {
-                return tasks.value.filter(t => !t.done).length;
-            }
 
-            if (filter === "done") {
-                return tasks.value.filter(t => t.done).length;
-            }
+/* ===============================
+   ANIMATION DES CARTES
+================================ */
 
-            return 0;
-        }
 
-        // Chargement des tâches depuis le localStorage, avec protection
-        // contre une donnée corrompue ou un ancien format invalide
-        const sauvegarde = localStorage.getItem("tasks");
+const elements =
+document.querySelectorAll(
+".card, .testimonial, .gallery img"
+);
 
-        if (sauvegarde) {
-            try {
-                const donnees = JSON.parse(sauvegarde);
 
-                if (Array.isArray(donnees)) {
-                    tasks.value = donnees;
-                } else {
-                    console.warn("Format de sauvegarde invalide, réinitialisation.");
-                    tasks.value = [];
-                }
-            } catch (e) {
-                console.error("Données de tâches corrompues, réinitialisation.", e);
-                tasks.value = [];
-            }
-        }
 
-        // Sauvegarde automatique à chaque modification des tâches
-        watch(tasks, () => {
-            try {
-                localStorage.setItem("tasks", JSON.stringify(tasks.value));
-            } catch (e) {
-                console.error("Impossible de sauvegarder les tâches.", e);
-            }
-        }, { deep: true });
+const observer =
+new IntersectionObserver(
 
-        return {
-            tasks,
-            newTaskTitle,
-            currentFilter,
-            filters,
-            filteredTasks,
-            hasCompleted,
-            addTask,
-            toggleTask,
-            deleteTask,
-            clearCompleted,
-            getFilterCount
-        };
+(entries)=>{
 
-    }
-}).mount("#app");            
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform=
+"translateY(0)";
+
+
+}
+
+
+});
+
+
+},
+
+{
+
+threshold:0.2
+
+}
+
+);
+
+
+
+elements.forEach(element=>{
+
+
+element.style.opacity="0";
+
+element.style.transform=
+"translateY(40px)";
+
+element.style.transition=
+"0.8s";
+
+
+observer.observe(element);
+
+
+});
+
+
+
+
+
+
+/* ===============================
+   FORMULAIRE D'INSCRIPTION
+================================ */
+
+
+const formulaire =
+document.querySelector("form");
+
+
+if(formulaire){
+
+
+formulaire.addEventListener(
+"submit",
+function(e){
+
+
+e.preventDefault();
+
+
+
+const nom =
+document.querySelector(
+'input[type="text"]'
+).value;
+
+
+
+const telephone =
+document.querySelector(
+'input[type="tel"]'
+).value;
+
+
+
+const service =
+document.querySelector(
+"select"
+).value;
+
+
+
+const message =
+document.querySelector(
+"textarea"
+).value;
+
+
+
+
+
+if(nom==="" || telephone===""){
+
+
+alert(
+"Veuillez renseigner votre nom et votre numéro."
+);
+
+
+return;
+
+}
+
+
+
+
+
+/*
+Remplacez les X par votre vrai numéro WhatsApp
+Exemple Burkina Faso :
+22670000000
+*/
+
+
+const numeroWhatsApp =
+"226XXXXXXXX";
+
+
+
+
+const texte =
+
+"Bonjour DÉCLIC VISION,%0A%0A" +
+
+"Je souhaite m'inscrire.%0A%0A" +
+
+"Nom : " + nom + "%0A" +
+
+"Téléphone : " + telephone + "%0A" +
+
+"Service choisi : " + service + "%0A" +
+
+"Message : " + message;
+
+
+
+
+
+const lien =
+
+"https://wa.me/" +
+
+numeroWhatsApp +
+
+"?text=" +
+
+texte;
+
+
+
+
+
+window.open(
+lien,
+"_blank"
+);
+
+
+
+});
+
+
+}
+
+
+
+
+
+/* ===============================
+   MESSAGE D'ACCUEIL
+================================ */
+
+
+console.log(
+
+"Bienvenue sur DÉCLIC VISION 🚀"
+
+);
+
+
+
+});                    
