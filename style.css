@@ -1,49 +1,463 @@
-/* Animation : une tâche apparaît en douceur */
-.task-item {
-  animation: apparition 0.4s ease-out;
+/* ===============================
+   DÉCLIC VISION - STYLE CSS
+   Se former aujourd'hui, impacter demain
+================================ */
+
+
+/* Réglages généraux */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
 }
 
-@keyframes apparition {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+body {
+    background: #ffffff;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Le bouton "Ajouter" grossit un peu quand on le survole */
-.btn-primary {
-  transition: transform 0.2s ease;
-}
-.btn-primary:hover {
-  transform: scale(1.05);
+
+/* ===============================
+   HEADER
+================================ */
+
+header {
+
+    background: linear-gradient(
+        90deg,
+        #009E49,
+        #FCD116,
+        #EF3340
+    );
+
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top:0;
+    z-index:1000;
+
 }
 
-/* Les boutons de filtre réagissent au clic */
-.filter-btn {
-  transition: all 0.2s ease;
-}
-.filter-btn:active {
-  transform: scale(0.95);
+
+.logo {
+
+    font-size: 28px;
+    font-weight: bold;
+    color:white;
+
 }
 
-/* La poubelle tremble un peu au survol */
-.btn-delete {
-  transition: transform 0.2s ease;
-}
-.btn-delete:hover {
-  transform: rotate(-10deg) scale(1.2);
+
+nav a {
+
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+
 }
 
-/* Le message "Aucune tâche" pulse doucement */
-.empty-state {
-  animation: pulse 2s infinite;
+
+nav a:hover {
+
+    text-decoration:underline;
+
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+
+
+/* ===============================
+   SECTION HERO
+================================ */
+
+
+.hero {
+
+    min-height:500px;
+    padding:80px 10%;
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+        rgba(0,158,73,0.85),
+        rgba(239,51,64,0.85)
+    );
+
+    color:white;
+
+}
+
+
+.hero h1 {
+
+    font-size:45px;
+    margin-bottom:20px;
+
+}
+
+
+.hero h2 {
+
+    font-size:25px;
+    color:#FCD116;
+    margin-bottom:20px;
+
+}
+
+
+.hero p {
+
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+
+}
+
+
+
+/* Boutons */
+
+
+.btn {
+
+    display:inline-block;
+    padding:15px 30px;
+    margin-top:30px;
+    border-radius:30px;
+    text-decoration:none;
+
+}
+
+
+.whatsapp {
+
+    background:#25D366;
+    color:white;
+    font-weight:bold;
+
+}
+
+
+.whatsapp:hover {
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+/* ===============================
+   SECTIONS
+================================ */
+
+
+section {
+
+    padding:60px 10%;
+
+}
+
+
+section h2 {
+
+    text-align:center;
+    margin-bottom:35px;
+    color:#009E49;
+    font-size:32px;
+
+}
+
+
+
+/* Présentation */
+
+
+.presentation p {
+
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+    font-size:18px;
+
+}
+
+
+
+
+/* ===============================
+   CARTES SERVICES
+================================ */
+
+
+.cards {
+
+    display:flex;
+    gap:25px;
+    justify-content:center;
+    flex-wrap:wrap;
+
+}
+
+
+
+.card {
+
+    width:300px;
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+
+    text-align:center;
+
+    border-top:6px solid #009E49;
+
+}
+
+
+
+.card h3 {
+
+    color:#EF3340;
+    margin-bottom:15px;
+
+}
+
+
+.card:hover {
+
+    transform:translateY(-8px);
+    transition:0.3s;
+
+}
+
+
+
+
+/* ===============================
+   GALERIE
+================================ */
+
+
+.gallery {
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+
+.gallery img {
+
+    width:300px;
+    height:200px;
+    object-fit:cover;
+
+    border-radius:15px;
+
+    border:5px solid #FCD116;
+
+}
+
+
+
+
+
+/* ===============================
+   TEMOIGNAGES
+================================ */
+
+
+.temoignages {
+
+    background:#f7f7f7;
+
+}
+
+
+.testimonial {
+
+    max-width:700px;
+    margin:20px auto;
+
+    background:white;
+
+    padding:25px;
+
+    border-left:8px solid #EF3340;
+
+    border-radius:10px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+
+}
+
+
+
+
+/* ===============================
+   FORMULAIRE
+================================ */
+
+
+form {
+
+    max-width:600px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+input,
+select,
+textarea {
+
+    padding:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+
+textarea {
+
+    height:120px;
+
+}
+
+
+
+form button {
+
+    padding:15px;
+
+    background:#009E49;
+
+    color:white;
+
+    border:none;
+
+    border-radius:30px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+
+form button:hover {
+
+    background:#EF3340;
+
+}
+
+
+
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+
+footer {
+
+    background:#009E49;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+
+
+
+/* ===============================
+   VERSION MOBILE
+================================ */
+
+
+@media(max-width:768px){
+
+
+header {
+
+    flex-direction:column;
+
+}
+
+
+nav {
+
+    margin-top:15px;
+
+}
+
+
+.hero h1 {
+
+    font-size:32px;
+
+}
+
+
+.hero h2 {
+
+    font-size:20px;
+
+}
+
+
+.cards {
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+.card {
+
+    width:90%;
+
+}
+
+
+.gallery img {
+
+    width:90%;
+
+}
+
+
 }
