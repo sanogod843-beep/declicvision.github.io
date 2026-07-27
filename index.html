@@ -1,125 +1,280 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestionnaire de tâches</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>DÉCLIC VISION | Se former aujourd'hui, impacter demain</title>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<meta name="description" content="DÉCLIC VISION : formation, soutien scolaire, activités culturelles et sportives.">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-<div id="app" class="container">
 
-    <header>
-        <h1>📋 Mes Tâches</h1>
-        <p class="subtitle">{{ tasks.length }} tâche(s) au total</p>
-    </header>
+<header>
 
-    <section class="add-section">
-        <form class="add-form" @submit.prevent="addTask">
-            <input
-                class="task-input"
-                v-model="newTaskTitle"
-                type="text"
-                placeholder="Nouvelle tâche..."
-                required
-            >
+<div class="logo">
+    📚 DÉCLIC VISION
+</div>
 
-            <button class="btn-primary">
-                Ajouter
-            </button>
-        </form>
-    </section>
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#services">Services</a>
+<a href="#galerie">Galerie</a>
+<a href="#contact">Contact</a>
+</nav>
 
-    <section class="filters">
+</header>
 
-        <button
-            v-for="filter in filters"
-            :key="filter.value"
-            @click="currentFilter = filter.value"
-            :class="['filter-btn',{active:currentFilter===filter.value}]">
 
-            {{ filter.label }}
 
-            <span class="badge">
-                {{ getFilterCount(filter.value) }}
-            </span>
+<section id="accueil" class="hero">
 
-        </button>
+<h1>
+DÉCLIC VISION
+</h1>
 
-    </section>
+<h2>
+Se former aujourd'hui, impacter demain
+</h2>
 
-    <section class="task-list">
+<p>
+Une structure dédiée à l'accompagnement éducatif,
+à la formation et au développement des compétences
+des apprenants.
+</p>
 
-        <div v-if="filteredTasks.length===0" class="empty-state">
-            ✨ Aucune tâche
-        </div>
 
-        <ul>
+<a class="btn whatsapp" href="https://wa.me/226XXXXXXXX">
+📱 Nous contacter sur WhatsApp
+</a>
 
-            <li
-                v-for="task in filteredTasks"
-                :key="task.id"
-                class="task-item">
+</section>
 
-                <div class="task-content">
 
-                    <input
-                        class="task-checkbox"
-                        type="checkbox"
-                        :checked="task.done"
-                        @change="toggleTask(task.id)"
-                    >
 
-                    <span
-                        class="task-title"
-                        :class="{done:task.done}">
 
-                        {{ task.title }}
+<section class="presentation">
 
-                    </span>
+<h2>Qui sommes-nous ?</h2>
 
-                </div>
+<p>
 
-                <div class="task-actions">
+DÉCLIC VISION est une initiative éducative qui accompagne
+les élèves, étudiants et professionnels à travers des formations
+de qualité, un encadrement personnalisé et des activités favorisant
+l'épanouissement intellectuel, culturel et sportif.
 
-                    <button
-                        class="btn-delete"
-                        @click="deleteTask(task.id)">
-                        🗑️
-                    </button>
+</p>
 
-                </div>
+</section>
 
-            </li>
 
-        </ul>
 
-    </section>
 
-    <footer>
+<section id="services">
 
-        <button
-            class="btn-clear"
-            v-if="hasCompleted"
-            @click="clearCompleted">
+<h2>Nos services</h2>
 
-            Supprimer les tâches terminées
 
-        </button>
+<div class="cards">
 
-    </footer>
+
+<div class="card">
+
+<h3>🎓 Formation</h3>
+
+<p>
+Préparation aux examens, formations professionnelles,
+renforcement des capacités et accompagnement pédagogique.
+</p>
 
 </div>
 
-<script src="app.js"></script>
+
+
+<div class="card">
+
+<h3>📖 Soutien scolaire</h3>
+
+<p>
+Accompagnement des élèves du CP1 au CM2 :
+aide aux devoirs, remise à niveau et suivi personnalisé.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>⚽ Activités culturelles et sportives</h3>
+
+<p>
+Développement des talents à travers le sport,
+la culture, la créativité et les loisirs éducatifs.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section id="galerie">
+
+<h2>Notre galerie</h2>
+
+
+<div class="gallery">
+
+<img src="https://via.placeholder.com/300x200?text=Formation" alt="Formation">
+
+<img src="https://via.placeholder.com/300x200?text=Soutien+scolaire" alt="Soutien scolaire">
+
+<img src="https://via.placeholder.com/300x200?text=Activités" alt="Activités">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="temoignages">
+
+<h2>Témoignages</h2>
+
+
+<div class="testimonial">
+
+<p>
+"Grâce à DÉCLIC VISION, j'ai amélioré mes résultats scolaires
+et développé davantage de confiance."
+</p>
+
+<strong>- Un parent d'élève</strong>
+
+</div>
+
+
+
+<div class="testimonial">
+
+<p>
+"Une équipe dynamique qui accompagne les apprenants
+vers la réussite."
+</p>
+
+<strong>- Un participant</strong>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="contact">
+
+
+<h2>Inscription</h2>
+
+
+<form>
+
+
+<label>
+Nom complet
+</label>
+
+<input type="text" placeholder="Votre nom" required>
+
+
+
+<label>
+Téléphone
+</label>
+
+<input type="tel" placeholder="Votre numéro" required>
+
+
+
+<label>
+Choisir un service
+</label>
+
+
+<select>
+
+<option>Formation</option>
+
+<option>Soutien scolaire</option>
+
+<option>Activités culturelles et sportives</option>
+
+</select>
+
+
+
+<label>
+Message
+</label>
+
+
+<textarea placeholder="Votre message"></textarea>
+
+
+<button type="submit">
+Envoyer l'inscription
+</button>
+
+
+</form>
+
+
+</section>
+
+
+
+
+
+<footer>
+
+
+<p>
+© 2026 DÉCLIC VISION - Tous droits réservés
+</p>
+
+
+<p>
+📞 Contact : +226 XX XX XX XX
+</p>
+
+
+</footer>
+
 
 </body>
+
 </html>
 
 
-             
