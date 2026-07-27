@@ -461,3 +461,18 @@ nav {
 
 
 }
+.apropos h3 {
+    color: #009E49;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.apropos strong {
+    color: #EF3340;
+}
+
+.apropos .btn {
+    display: block;
+    width: fit-content;
+    margin: 35px auto;
+}
