@@ -634,3 +634,114 @@ font-size:20px;
 }
 
 }
+/* ===============================
+   HERO VERSION 2
+================================ */
+
+.hero{
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+min-height:70vh;
+padding:80px 10%;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("presentation.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+}
+
+.hero-content{
+
+max-width:900px;
+
+}
+
+.hero h1{
+
+font-size:56px;
+margin-bottom:15px;
+color:white;
+
+}
+
+.hero h2{
+
+font-size:30px;
+color:#FCD116;
+margin-bottom:25px;
+
+}
+
+.hero p{
+
+font-size:20px;
+color:white;
+margin-bottom:35px;
+line-height:1.8;
+
+}
+
+.hero-buttons{
+
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+
+}
+
+.hero-buttons .btn{
+
+padding:15px 35px;
+font-size:18px;
+font-weight:bold;
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+min-height:60vh;
+padding:60px 8%;
+
+}
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero h2{
+
+font-size:24px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.hero-buttons .btn{
+
+width:100%;
+
+}
+
+}
